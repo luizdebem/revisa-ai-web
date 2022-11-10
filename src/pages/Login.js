@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Input, Button } from "@material-tailwind/react";
 import { AuthService } from "../services/AuthService";
 import { AxiosError } from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -30,7 +30,7 @@ const Login = () => {
 
   return (
     <main className="flex flex-col justify-center items-center h-screen">
-      <div className="p-5 bg-white rounded-xl">
+      <div className="p-5 bg-white rounded-xl w-full max-w-lg">
         <h1 className="text-center mb-5">Revisa Aí - Portal do Professor</h1>
         <form className="flex flex-col" onSubmit={submit}>
           <div className="mb-3">
@@ -41,7 +41,7 @@ const Login = () => {
           </div>
           <Button size="lg" variant="outlined" className="mb-5" type="submit">Entrar</Button>
         </form>
-        <label>Não possui uma conta? Cadastre-se clicando aqui.</label>
+        <h1 className="text-center">Não possui uma conta? <Link className="underline" to="/signup">Cadastre-se clicando aqui.</Link></h1>
       </div>
     </main>
   );
