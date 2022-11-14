@@ -1,7 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import RequireAuth from "./components/RequireAuth";
-import Dashboard from "./pages/Dashboard";
+import Home from "./pages/Home";
+import CreateQuiz from "./pages/CreateQuiz";
+import MyQuizzes from "./pages/MyQuizzes";
+import MyProfile from "./pages/MyProfile";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 
@@ -9,8 +12,11 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="*" element={<RequireAuth><Dashboard /></RequireAuth>} />
-        <Route path="/" element={<RequireAuth><Dashboard /></RequireAuth>} />
+        <Route path="*" element={<RequireAuth><Home /></RequireAuth>} />
+        <Route path="/" element={<RequireAuth><Home /></RequireAuth>} />
+        <Route path="/create-quiz" element={<RequireAuth><CreateQuiz /></RequireAuth>} />
+        <Route path="/my-quizzes" element={<RequireAuth><MyQuizzes /></RequireAuth>} />
+        <Route path="/my-profile" element={<RequireAuth><MyProfile /></RequireAuth>} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>
