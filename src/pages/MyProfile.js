@@ -12,7 +12,7 @@ const MyProfile = () => {
 
   return (
     <BaseLayout>
-      <form>
+      <form className="w-1/2">
         <div className="mb-4">
           <Input readOnly onChange={(e) => { console.log(e.target.value) }} defaultValue={user.fullName} label="Nome completo" size="lg" variant="outline" type="text" />
         </div>

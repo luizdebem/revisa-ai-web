@@ -25,7 +25,7 @@ const BaseLayout = (props) => {
           </div>
         </header>
 
-        <div className="flex flex-1 px-3">
+        <div className="flex flex-col flex-1 px-3">
           {children}
         </div>
       </main>

@@ -6,4 +6,8 @@ export class QuizService {
   static create(data) {
     return axios.post(this.baseUrl, data, { headers: { "x-auth-token": localStorage.getItem("accessToken") } });
   }
+
+  static getByTeacherId(teacherId) {
+    return axios.get(this.baseUrl + `/teacher/${teacherId}`);
+  }
 }
