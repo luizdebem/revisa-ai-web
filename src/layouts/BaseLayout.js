@@ -10,9 +10,8 @@ const BaseLayout = (props) => {
           <label>logotipo</label>
         </div>
         <ul className="flex flex-col">
-          <SidebarItem to="/">Home</SidebarItem>
-          <SidebarItem to="/create-quiz">Criar quiz</SidebarItem>
           <SidebarItem to="/my-quizzes">Meus quizes</SidebarItem>
+          <SidebarItem to="/create-quiz">Criar quiz</SidebarItem>
           <SidebarItem to="/my-profile">Meu perfil</SidebarItem>
         </ul>
         <small className="mt-auto self-center">© 2022 luizdebem</small>
