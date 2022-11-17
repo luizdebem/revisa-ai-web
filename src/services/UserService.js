@@ -6,4 +6,9 @@ export class UserService {
   static signup(data) {
     return axios.post(this.baseUrl, data);
   }
+
+  static get user() {
+    if (!localStorage.getItem("user")) return null;
+    return JSON.parse(localStorage.getItem("user"));
+  }
 }

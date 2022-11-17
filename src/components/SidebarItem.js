@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link, useMatch, useResolvedPath } from 'react-router-dom';
+import React from "react"
+import { Link, useMatch, useResolvedPath } from "react-router-dom";
 
 const SidebarItem = ({ to, children }) => {
   const resolved = useResolvedPath(to);
