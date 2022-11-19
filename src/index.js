@@ -6,9 +6,11 @@ import { AuthService } from "./services/AuthService.js";
 
 const minutesToMilisseconds = (minutes) => minutes * 1000 * 60;
 setInterval(() => {
-  AuthService.refreshToken().then((res) => {
-    localStorage.setItem("accessToken", res.data.accessToken);
-  });
+  if (localStorage.getItem("accessToken")) {
+    AuthService.refreshToken().then((res) => {
+      localStorage.setItem("accessToken", res.data.accessToken);
+    });
+  }
 }, minutesToMilisseconds(1));
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

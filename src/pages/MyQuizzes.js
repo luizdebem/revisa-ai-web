@@ -25,33 +25,37 @@ const MyQuizzes = () => {
 
   return (
     <BaseLayout>
-      <TableContainer component={Paper}>
-        <Table size="small" aria-label="a dense table">
-          <TableHead>
-            <TableRow>
-              <TableCell>Senha</TableCell>
-              <TableCell>Título</TableCell>
-              <TableCell>Expira em</TableCell>
-              <TableCell>Total de respostas</TableCell>
-              <TableCell>Nota média das respostas</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {quizzes.map((quiz, index) => (
-              <TableRow
-                key={index}
-                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-              >
-                <TableCell>{quiz.password}</TableCell>
-                <TableCell>{quiz.title}</TableCell>
-                <TableCell>{new Intl.DateTimeFormat('pt-BR').format(new Date(quiz.expiryDate))}</TableCell>
-                <TableCell>{quiz.answerCount}</TableCell>
-                <TableCell>{quiz.avgScore}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+      {
+        quizzes.length
+          ? <TableContainer component={Paper}>
+            <Table size="small" aria-label="a dense table">
+              <TableHead>
+                <TableRow>
+                  <TableCell>Senha</TableCell>
+                  <TableCell>Título</TableCell>
+                  <TableCell>Expira em</TableCell>
+                  <TableCell>Total de respostas</TableCell>
+                  <TableCell>Nota média das respostas</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {quizzes.map((quiz, index) => (
+                  <TableRow
+                    key={index}
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                  >
+                    <TableCell>{quiz.password}</TableCell>
+                    <TableCell>{quiz.title}</TableCell>
+                    <TableCell>{new Intl.DateTimeFormat('pt-BR').format(new Date(quiz.expiryDate))}</TableCell>
+                    <TableCell>{quiz.answerCount}</TableCell>
+                    <TableCell>{quiz.avgScore}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+          : <small>Nenhum quiz encontrado!</small>
+      }
     </BaseLayout>
   )
 }

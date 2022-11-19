@@ -14,13 +14,13 @@ const MyProfile = () => {
     <BaseLayout>
       <form className="w-1/2">
         <div className="mb-4">
-          <Input readOnly onChange={(e) => { console.log(e.target.value) }} defaultValue={user.fullName} label="Nome completo" size="lg" variant="outline" type="text" />
+          <Input readOnly onChange={(e) => { }} defaultValue={user.fullName} label="Nome completo" size="lg" variant="outline" type="text" />
         </div>
         <div className="mb-4">
-          <Input readOnly onChange={(e) => { console.log(e.target.value) }} defaultValue={user.email} label="E-mail" size="lg" variant="outline" type="email" />
+          <Input readOnly onChange={(e) => { }} defaultValue={user.email} label="E-mail" size="lg" variant="outline" type="email" />
         </div>
         <div className="mb-4">
-          <Input readOnly onChange={(e) => { console.log(e.target.value) }} label="Criar nova senha" size="lg" variant="outline" type="password" />
+          <Input readOnly onChange={(e) => { }} label="Criar nova senha" size="lg" variant="outline" type="password" />
         </div>
         <Button className="mb-4 w-full" type="submit">Atualizar</Button>
       </form>
