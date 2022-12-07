@@ -20,7 +20,7 @@ const MyProfile = () => {
           <Input readOnly onChange={(e) => { }} defaultValue={user.email} label="E-mail" size="lg" variant="outline" type="email" />
         </div>
         <div className="mb-4">
-          <Input readOnly onChange={(e) => { }} label="Criar nova senha" size="lg" variant="outline" type="password" />
+          <Input readOnly onChange={(e) => { }} label="Alterar senha" size="lg" variant="outline" type="password" />
         </div>
         <Button className="mb-4 w-full" type="submit">Atualizar</Button>
       </form>

@@ -30,7 +30,7 @@ const Login = () => {
 
   return (
     <main className="flex flex-col justify-center items-center h-screen">
-      <div className="p-5 bg-white rounded-xl w-full max-w-lg">
+      <div className="p-5 bg-white rounded-xl w-full max-w-lg shadow-2xl">
         <h1 className="text-center mb-5">Revisa Aí - Portal do Professor</h1>
         <form className="flex flex-col" onSubmit={submit}>
           <div className="mb-3">
@@ -39,7 +39,7 @@ const Login = () => {
           <div className="mb-3">
             <Input onChange={(e) => { setPassword(e.target.value) }} required size="lg" variant="outlined" label="Senha" type="password" />
           </div>
-          <Button size="lg" variant="outlined" className="mb-5" type="submit">Entrar</Button>
+          <Button size="lg" variant="filled" className="mb-5" type="submit">Entrar</Button>
         </form>
         <h1 className="text-center">Não possui uma conta? <Link className="underline" to="/signup">Cadastre-se clicando aqui.</Link></h1>
       </div>

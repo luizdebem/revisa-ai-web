@@ -78,21 +78,22 @@ const CreateQuiz = () => {
   return (
     <BaseLayout>
       <form className="flex flex-col w-1/2" onSubmit={submit}>
-        <div className="mb-4">
+        <label className="mb-4">Informações</label>
+        <div className="mb-6">
           <Input onChange={(e) => { setTitle(e.target.value) }} required size="lg" variant="static" label="Título do quiz" placeholder="Exemplo: Revisão trimestral" type="text" />
         </div>
         <div className="mb-6">
           <Input onChange={(e) => { setDescription(e.target.value) }} required size="lg" variant="static" label="Descrição/conteúdo" placeholder="Exemplo: Apostila 1" type="text" />
         </div>
-        <div className="mb-4">
+        <div className="mb-8">
           <Input onChange={(e) => { setExpiryDate(e.target.value); }} required size="lg" variant="outlined" label="Data limite para respostas" type="date" min={new Date().toISOString().split("T")[0]} defaultValue={new Date().toISOString().split("T")[0]} />
         </div>
 
-        <hr className="my-3" />
-
         {questions.map((question, index) =>
           <div key={index}>
-            <label className="mb-2">Questão {index + 1} <small onClick={() => { removeQuestion(question.id); }}>remover</small></label>
+            <div className="mb-2">
+              <label>Questão {index + 1} <small onClick={() => { removeQuestion(question.id); }}>remover</small></label>
+            </div>
             <div className="mb-4">
               <Input onChange={(e) => { updateQuestion(index, "statement", e.target.value) }} required size="lg" variant="outlined" label="Enunciado" type="text" />
             </div>
@@ -115,11 +116,11 @@ const CreateQuiz = () => {
               <Input onChange={(e) => { updateQuestionAlternative(index, 3, e.target.value) }} required size="lg" variant="outlined" label="Alternativa D" type="text" />
 
             </div>
-            {index + 1 === questions.length ? <Button onClick={addQuestion} className="mb-4 w-full">Adicionar nova questão</Button> : <></>}
+            {index + 1 === questions.length ? <Button variant="outlined" onClick={addQuestion} className="mb-4 w-full">Adicionar nova questão</Button> : <></>}
           </div>
         )}
 
-        {!questions.length ? <Button onClick={addQuestion} className="mb-4 w-full">Adicionar nova questão</Button> : <></>}
+        {!questions.length ? <Button variant="outlined" onClick={addQuestion} className="mb-4 w-full">Adicionar nova questão</Button> : <></>}
 
         <Button className="mb-4" type="submit">Criar quiz</Button>
       </form>

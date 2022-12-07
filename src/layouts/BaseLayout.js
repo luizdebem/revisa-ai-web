@@ -15,17 +15,17 @@ const BaseLayout = (props) => {
   }
 
   return (
-    <div className="flex flex-row h-screen">
-      <aside className="flex flex-col w-64 overflow-y-auto py-4 px-3 pb-0 bg-gray-50 rounded">
+    <div className="flex flex-row min-h-screen">
+      <aside className="flex flex-col w-64 overflow-y-auto py-4 px-4 pb-0 bg-gray-50 rounded shadow-2xl mr-2">
         <div className="flex flex-col justify-center items-center h-32 border border-black mb-5">
-          <label>logotipo</label>
+          <label><b>Revisa Aí</b></label>
         </div>
         <ul className="flex flex-col">
-          <SidebarItem to="/my-quizzes">Meus quizes</SidebarItem>
           <SidebarItem to="/create-quiz">Criar quiz</SidebarItem>
+          <SidebarItem to="/my-quizzes">Meus quizes</SidebarItem>
           <SidebarItem to="/my-profile">Meu perfil</SidebarItem>
         </ul>
-        <small className="mt-auto self-center">© 2022 luizdebem</small>
+        <small className="mt-auto self-center py-2">© 2022 luizdebem</small>
       </aside>
 
       <main className="w-full h-full flex flex-col">
