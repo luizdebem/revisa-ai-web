@@ -12,7 +12,8 @@ const CreateQuiz = () => {
       "statement": "",
       "alternatives": ["", "", "", ""],
       "correctAnswerIndex": 0,
-      "id": Date.now()
+      "id": Date.now(),
+      "imagePath": null
     }
   ];
 
@@ -52,7 +53,8 @@ const CreateQuiz = () => {
       "statement": "",
       "alternatives": ["", "", "", ""],
       "correctAnswerIndex": 0,
-      "id": Date.now()
+      "id": Date.now(),
+      "imagePath": null
     });
     setQuestions(questionsReference);
   }
@@ -73,6 +75,17 @@ const CreateQuiz = () => {
     const questionsReference = [...questions];
     questionsReference[index].alternatives[alternative] = value;
     setQuestions(questionsReference);
+  }
+
+  async function upload(file, index) {
+    const formData = new FormData();
+    formData.append("image", file);
+    const res = await QuizService.upload(formData);
+    const { path } = res.data;
+    const questionsReference = [...questions];
+    questionsReference[index]["imagePath"] = path;
+    setQuestions(questionsReference);
+    console.log(questions);
   }
 
   return (
@@ -96,6 +109,9 @@ const CreateQuiz = () => {
             </div>
             <div className="mb-4">
               <Input onChange={(e) => { updateQuestion(index, "statement", e.target.value) }} required size="lg" variant="outlined" label="Enunciado" type="text" />
+            </div>
+            <div className="mb-4">
+              <Input onChange={(e) => { upload(e.target.files[0], index) }} size="lg" variant="outlined" label="Imagem da questão (opcional)" type="file" />
             </div>
             <div className="mb-4 flex flex-row items-center">
               <input defaultChecked={true} type="radio" name={`correct-${question.id}`} className="mr-2" onChange={(e) => { updateQuestion(index, "correctAnswerIndex", 0) }} />

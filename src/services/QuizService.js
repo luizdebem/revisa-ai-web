@@ -10,4 +10,12 @@ export class QuizService {
   static getByTeacherId(teacherId) {
     return axios.get(this.baseUrl + `/teacher/${teacherId}`);
   }
+
+  static upload(formData) {
+    return axios.post(this.baseUrl + '/upload', formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      }
+    })
+  }
 }
